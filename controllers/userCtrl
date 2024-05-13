@@ -1,0 +1,21 @@
+const { response } = require("express");
+const User = require("../models/userModel");
+
+const createUser = async (req, res) => {
+  const email = req.body.email;
+  const user = await User.findOne({ email });
+
+  if (!user) {
+    // create a new user
+    const newUser = await User.create(req.body);
+    res.json(newUser);
+  } else {
+    // notify user exist
+    res.json({
+      msg: "User already exists",
+      success: false,
+    });
+  }
+};
+
+module.exports = { createUser };
