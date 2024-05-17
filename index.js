@@ -1,9 +1,12 @@
 const express = require("express");
-const dbConnect = require("./config/dbConnect");
+const dbConnect = require("./config/dbConnect.config");
 const dotenv = require("dotenv").config();
-const authRoute = require("./routes/authRoute");
+const authRoute = require("./routes/auth.route");
 const bodyParser = require("body-parser");
-const { notFound, errorHandler } = require("./middlewares/errorHandler");
+const {
+  notFound,
+  errorHandler,
+} = require("./middlewares/errorHandler.midlleware");
 // initial
 const app = express();
 const PORT = process.env.PORT || 4000;
