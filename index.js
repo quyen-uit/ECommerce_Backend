@@ -6,7 +6,8 @@ const bodyParser = require("body-parser");
 const {
   notFound,
   errorHandler,
-} = require("./middlewares/errorHandler.midlleware");
+} = require("./middlewares/error-handler.midlleware");
+
 // initial
 const app = express();
 const PORT = process.env.PORT || 4000;

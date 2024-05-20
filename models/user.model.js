@@ -34,7 +34,7 @@ var userSchema = new mongoose.Schema({
 });
 
 // hash password before save to db
-userSchema.pre("save", async () => {
+userSchema.pre("save", async function () {
   this.password = await bcrypt.hash(this.password, saltRounds);
 });
 
